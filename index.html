@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <title>Robert Haz Teh Cats</title>
+
+<!-- Moved CSS to separate style sheet   -->
+<link rel="stylesheet" href="Style.css">
+
+
+</head>
+
+<body>
+
+<header>
+  <h1>How to Name Cats for Adoption</h1>
+  <h2>Tips and Ideas</h2>
+
+  <div class="wrapper">
+    <div class="column1">
+      <img src="https://i.pinimg.com/736x/50/05/32/500532bedf8d70e34dfa37d6da1ddf81.jpg" alt="cat doodle logo"
+        width="100" />
+    </div>
+
+    <div class="column2">
+      <Button class="button" id="why-button" type="Button" onclick="location.hash='why'"><strong>Why Names Matter</strong></button>
+      
+    </div>
+
+    <div class="column3">
+      <button class="button" id="considerations-button" type="button" onclick="location.hash='considerations'"><strong>Considerations</strong></button>
+    </div>
+
+    <div class="column4">
+      <button class="button" id="popular-button" type="button" onclick="location.hash='popular'"><strong>Popular Categories</strong></button>
+    </div>
+  </div>
+
+</header>
+  <br>
+  <div class="banner" id="banner">
+    <br>
+    <!--banner image-->
+    <img id="banner-img" src="https://live.staticflickr.com/2877/11412021083_17843d71cc_b.jpg" title= "Two young cats cuddling" alt="Two young cats cuddling"
+      width="300" />
+      </div>
+    <div>
+    <br>
+    <div class="buttonrow">
+    <button class="button" type="button"><a href="https://jaxhumane.org/adopt/cats/" target="_blank"><strong>Meet Your Cat Today!</strong></a></button>
+    <br>
+  </div>
+
+  <div class="infogrid">
+    <div class="infogrid1">
+      <section id="why">
+        <h3>Why Names Matter</h3>
+        <p>When seeking homes for shelter or rescue cats giving the cats catchy names can help them garner attention and
+          find their future families.
+        </p>
+      </section>
+    </div>
+
+
+    <br>
+    <div class="infogrid2">
+      <section id="considerations">
+        <h3>Considerations</h3>
+        <p>Some considerations when naming cats are as follows:
+        </p>
+        <ul>
+          <li>Are any of the cats bonded pairs?</li>
+          <li>What are the demographics of cat adopters in your area?</li>
+          <li>What demographics do your shelter's marketing efforts reach outside of your area? (Only applicable if your
+            shelter allows out-of-area adoptions.)</li>
+          <li>What names will stand out from the other cats your shelter has available?</li>
+        </ul>
+      </section>
+    </div>
+
+
+    <br>
+    <div class="infogrid3">
+      <section id="popular">
+        <h3>Popular Categories</h3>
+        <!--ideas for naming cats, no specific examples-->
+        <p>We have listed some popular types of names for cats below. It is best to think about what would appeal to the
+          demographics you are trying to reach for adoption when naming shelter cats. If you are naming multiple cats
+          that
+          you wish to adopt out together, such as a bonded pair or litter mates, it can be helpful to give them names
+          that
+          go
+          together in theme and or style.</p>
+        <ul>
+          <li>Fast food menu items</li>
+          <li>Punny names based off of pop culture or historical figures</li>
+          <li>Names of mythological figures or creatures</li>
+          <li>Old-fashioned or formal names</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+
+<button class="button" type="button" id="theme-toggle"><strong>Toggle Dark Mode</strong></button>
+
+<footer>
+  <!--copywrite info-->
+  <p>© 2025 Sara Bass</p>
+</footer>
+<script>
+  const btn = document.getElementById("theme-toggle");
+  const bannerImg = document.getElementById("banner-img");
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  document.querySelectorAll('.button').forEach(button => button.classList.toggle("dark-mode"));
+  if (document.body.classList.contains("dark-mode")) {
+    // two black cats
+    bannerImg.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHQEVUWdVB13fxWl1EUxqhB6e1vfO1WdiOgw&s";
+  } else {
+    // two orange cats
+    bannerImg.src = "https://live.staticflickr.com/2877/11412021083_17843d71cc_b.jpg";
+  }
+});
+
+</script>
+</body>
+</html>

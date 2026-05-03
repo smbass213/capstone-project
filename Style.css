@@ -67,15 +67,17 @@ video {
 
       }
     
-    .infogrid>div {
-      display: flex;
-      flex-direction: column;
-    }
+    .infogrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  padding: 1em;
+}
 
     @media screen and (width > 600px) {
       .infogrid {
         display: grid;
-        grid-template-columns: 30fr 2fr 30fr 2fr 30fr;
+        grid-template-columns: repeat(4, 1fr);
         grid-gap: 1em;
         padding: 1em;
       }

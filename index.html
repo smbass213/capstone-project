@@ -40,26 +40,7 @@
   <h1>Robert Haz Teh Cats</h1>
   <h2>About Us</h2>
 
-  <div class="wrapper">
-    <div class="column1">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThzEd32P9-eG--0jfBiTmxl9a8cevnz08RtA&s" alt="nyan cat"
-        width="100" />
-    </div>
-
-    <div class="column2">
-      <Button class="button" id="creator-button" type="Button" onclick="location.hash='creator'"><strong>Meet Robert</strong></button>
-      
-    </div>
-
-    <div class="column3">
-      <button class="button" id="inspiration-button" type="button" onclick="location.hash='inspiration'"><strong>Our Inspiration</strong></button>
-    </div>
-
-    <div class="column4">
-      <button class="button" id="products-button" type="button" onclick="location.hash='products'"><strong>Our Products</strong></button>
-    </div>
-  </div>
-
+ 
 </header>
   <br>
   <div class="banner" id="banner">
@@ -101,7 +82,7 @@ async function updateCat() {
     if (!inspirationImg) {
       inspirationImg = document.createElement('img');
       inspirationImg.alt = 'Cat inspiration';
-      inspirationImg.width = 300;
+      inspirationImg.width = 275;
       container.innerHTML = '';
       container.appendChild(inspirationImg);
     }
@@ -129,6 +110,15 @@ setInterval(updateCat, 10000);
           <li>Inspired by History</li>
           <li>Cats and Food</li>
         </ul>
+      </section>
+
+        
+    </div>
+    <div class="infogrid">
+    <div class="infogrid4">
+      <section id="social">
+        <h3>Follow Us</h3>
+        <p>Robert iz a life-long cat fan and sleeve hater. His wife and their three cats call him Chris.</p>
       </section>
     </div>
   </div>

@@ -56,7 +56,7 @@
     </div>
 
     <div class="column4">
-      <button class="button" id="popular-button" type="button" onclick="location.hash='popular'"><strong>Popular Categories</strong></button>
+      <button class="button" id="products-button" type="button" onclick="location.hash='products'"><strong>Our Products</strong></button>
     </div>
   </div>
 
@@ -89,41 +89,38 @@
       <section id="inspiration">
   <h3>Our Inspiration</h3>
   <p>Cats and the many ways you can wear their likeness. Provided that it's never on sleeves.</p>
-  <div id="inspiration-images">
+  <div id="inspiration-images"></div>
     <script>
-async function showInspirationCat() {
-  const result = await getData();
-  if (!result || !result[0]) return;
-  const catUrl = result[0].url;
-
-  const img = document.createElement("img");
-  img.src = catUrl;
-  img.alt = "Cat inspiration";
-  img.width = 300;
-
-  document.getElementById("inspiration-images").appendChild(img);
-}
-
-showInspirationCat();
-
-  //calls function to update cat image
 const container = document.getElementById('inspiration-images');
-let img;
+let inspirationImg;
+
 async function updateCat() {
   try {
     const data = await getData();
     if (!data || !data.length) {
       container.textContent = 'No image available';
       return;
-    }} catch (error) {
-      console.error('Error fetching cat image:', error);
-      container.textContent = 'Error loading image';
-    }}
+    }
 
-    //set cat image to liveupdate without refreshing page, updates every 10 seconds
+    const catUrl = data[0].url;
+
+    if (!inspirationImg) {
+      inspirationImg = document.createElement('img');
+      inspirationImg.alt = 'Cat inspiration';
+      inspirationImg.width = 300;
+      container.innerHTML = '';
+      container.appendChild(inspirationImg);
+    }
+
+    inspirationImg.src = catUrl;
+  } catch (error) {
+    console.error('Error fetching cat image:', error);
+    container.textContent = 'Error loading image';
+  }
+}
+
 updateCat();
 setInterval(updateCat, 10000);
-
 </script>
   </div>
 </section>
@@ -132,23 +129,14 @@ setInterval(updateCat, 10000);
 
     <br>
     <div class="infogrid3">
-      <section id="popular">
-        <h3>Popular Categories</h3>
-        <!--ideas for naming cats, no specific examples-->
-        <p>We have listed some popular types of names for cats below. It is best to think about what would appeal to the
-          demographics you are trying to reach for adoption when naming shelter cats. If you are naming multiple cats
-          that
-          you wish to adopt out together, such as a bonded pair or litter mates, it can be helpful to give them names
-          that
-          go
-          together in theme and or style.</p>
+      <section id="products">
+        <h3>Our Products</h3>
+          <p>Using AI design and all-over print Robert Haz Teh Cats creates unique and adorable merchandise for cat lovers.</p>
         <ul>
-          <li>Fast food menu items</li>
-          <li>Punny names based off of pop culture or historical figures</li>
-          <li>Names of mythological figures or creatures</li>
-          <li>Old-fashioned or formal names</li>
-        </ul>
-      </section>
+          <li>Custom Orders</li>
+          <li>Inspired by History</li>
+          <li>Cats and Food</li>
+          </section>
     </div>
   </div>
 </div>

@@ -7,6 +7,30 @@
 <!-- Moved CSS to separate style sheet   -->
 <link rel="stylesheet" href="Style.css">
 
+<script>
+//set function for cat api images
+ async function getData() {
+  const url = "https://api.thecatapi.com/v1/images/search";
+  try {
+    const response = await fetch(url, {
+      method: "GET" ,
+      headers: {
+        "x-api-key": "live_PqlYHyAMIQMvJM3MzVI69uJy20xdgSQ3olUXenGEgm4lWl0RkODzqyZNgTLGzn1e"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    console.log(result);
+    return result
+  } catch (error) {
+    console.error(error.message);
+  }
+} 
+
+</script>
 
 </head>
 
@@ -63,17 +87,46 @@
     <br>
     <div class="infogrid2">
       <section id="inspiration">
-        <h3>Our Inspiration</h3>
-        <p>Cats and the many ways you can wear their likeness. But never sleeves.
-                  </p>
-        <ul>
-          <li>Are any of the cats bonded pairs?</li>
-          <li>What are the demographics of cat adopters in your area?</li>
-          <li>What demographics do your shelter's marketing efforts reach outside of your area? (Only applicable if your
-            shelter allows out-of-area adoptions.)</li>
-          <li>What names will stand out from the other cats your shelter has available?</li>
-        </ul>
-      </section>
+  <h3>Our Inspiration</h3>
+  <p>Cats and the many ways you can wear their likeness. But never sleeves.</p>
+  <div id="inspiration-images">
+    <script>
+async function showInspirationCat() {
+  const result = await getData();
+  if (!result || !result[0]) return;
+  const catUrl = result[0].url;
+
+  const img = document.createElement("img");
+  img.src = catUrl;
+  img.alt = "Cat inspiration";
+  img.width = 300;
+
+  document.getElementById("inspiration-images").appendChild(img);
+}
+
+showInspirationCat();
+
+  //calls function to update cat image
+const container = document.getElementById('inspiration-images');
+let img;
+async function updateCat() {
+  try {
+    const data = await getData();
+    if (!data || !data.length) {
+      container.textContent = 'No image available';
+      return;
+    }} catch (error) {
+      console.error('Error fetching cat image:', error);
+      container.textContent = 'Error loading image';
+    }}
+
+    //set cat image to liveupdate without refreshing page, updates every 10 seconds
+updateCat();
+setInterval(updateCat, 10000);
+
+</script>
+  </div>
+</section>
     </div>
 
 

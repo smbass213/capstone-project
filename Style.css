@@ -74,10 +74,10 @@ video {
   padding: 1em;
 }
 
-    @media screen and (width > 600px) {
+    @media screen and (width < 400px) {
       .infogrid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-gap: 1em;
         padding: 1em;
       }

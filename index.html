@@ -31,7 +31,8 @@
 } 
 
 </script>
-
+<script>
+  fetch("https://api.openai.com/v1/chat/completions", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer YOUR_API_KEY" }, body: JSON.stringify({ model: "gpt-4", messages: [{ role: "user", content: "Hello AI bot!" }] }) }) .then(res => res.json()) .then(data => console.log(data.choices[0].message.content));  </script>
 </head>
 
 <body>
@@ -46,8 +47,8 @@
   <div class="banner" id="banner">
     <br>
     <!--banner image-->
-    <img id="banner-img" src="https://roberthaztehcats.com/cdn/shop/files/rn-image_picker_lib_temp_c5a80185-472e-44a8-b75f-676fcb1a35e1.png?v=1699460924&width=533" title= "Dwight Eisenmeower Tank Top" alt="Dwight Eisenmeower Tank Top"
-      width="300" />
+    <a href="https://roberthaztehcats.com/"><img id="banner-img" src="https://roberthaztehcats.com/cdn/shop/files/rn-image_picker_lib_temp_c5a80185-472e-44a8-b75f-676fcb1a35e1.png?v=1699460924&width=533" title= "Dwight Eisenmeower Tank Top" alt="Dwight Eisenmeower Tank Top"
+      width="300" /></a>
       </div>
 
 
